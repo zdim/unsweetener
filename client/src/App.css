@@ -2,9 +2,23 @@
   text-align: center;
 }
 
-.App-header {
+header {
+  background-color: #111111;
+  color: #fff;
+  min-height: 6vh;
+  border-bottom: darkgrey 1px solid;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+}
+
+.branding h3 {
+  margin: 0;
+}
+
+.body {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 94vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +31,7 @@ form {
   width: 60%;
 }
 
-form li {
+li {
   list-style-type: none;
   text-align: left;
   background: #3b414d;
@@ -26,20 +40,31 @@ form li {
   padding: 10px;
 }
 
-form a {
+li a {
   text-decoration: none;
   color: lightblue;
 }
 
-form a:visited {
+li a:visited {
   color: lightblue;
 }
 
-form a:hover {
+li a:hover {
   color: #fff;
 }
 
-input[type=text] {
+header input[type=text] {
+  width: 60%;
+  display: inline-block;
+  border-width: 0;
+  border-radius: 4px;
+  background-color: #282c34;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 30px;
+}
+
+.body input[type=text] {
   width: 100%;
   display: inline-block;
   border-width: 1px;

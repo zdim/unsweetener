@@ -21,14 +21,17 @@ app.post('/search',  (req, res, next) => {
     }
 });
 
+function trimName(name) {
+    return name.slice(0, name.indexOf(', UPC: '));
+}
+
 function processSearchResults(data) {
     if(data && data.list) {
         const list = data.list.item;
-        console.log(list);
         const results = list.map(x => {
             return { 
                 id: x.ndbno,
-                name: x.name.slice(0, x.name.indexOf(', UPC: ')),
+                name: trimName(x.name),
                 offset: x.offset
             };
         });
@@ -48,12 +51,15 @@ app.get('/item/:id', (req, res) => {
 function processItemData(data) {
     if(data && data.foods) {
         const foodItem = data.foods[0];
-        const { ing } = foodItem.food
-        if(ing) {
-            return { ingredients: ing.desc }
+        if(foodItem.food) {
+            const { ing, desc } = foodItem.food;
+            return { 
+                name: trimName(desc.name),
+                ingredients: ing.desc 
+            }
         }
-    }
-    return null;
+    }    
+    return { error: "No item found!" };
 }
 
 app.listen(port, (err) => {

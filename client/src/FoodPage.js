@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
+import SearchBar from './SearchBar';
+import LogoLink from './LogoLink';
 
 class FoodPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
             ingredients: '',
-            id: 0
+            name: ''
         }
     }
 
@@ -20,18 +22,25 @@ class FoodPage extends Component {
             .then(x => this.checkIngredients(x));
   }
 
-  checkIngredients = (ing) => {
-      if(ing) {
-          const { ingredients } = ing;
-          const sweeteners = [ 'SUGAR', 'ASPARTAME', 'SUCRALOSE', 'SACCHARIN', 'ACESULFAME K', 'XYLITOL', 'SORBITOL'];
-          let foundSweeteners = '';
-          sweeteners.forEach(element => {
-              if(ingredients.includes(element)) {
-                  foundSweeteners = foundSweeteners.concat(element)
-              }
-          });
-          this.setState({ ingredients: foundSweeteners })
-      }
+    checkIngredients = (ing) => {
+        if(ing) {
+            if(ing.error) {
+                this.setState( { name: "No item found!" });
+                return;
+            }
+        const { ingredients, name } = ing;
+        const sweeteners = [ 'SUGAR', 'ASPARTAME', 'SUCRALOSE', 'SACCHARIN', 'ACESULFAME K', 'XYLITOL', 'SORBITOL'];
+        let foundSweeteners = '';
+        sweeteners.forEach(element => {
+            if(ingredients.includes(element)) {
+                foundSweeteners = foundSweeteners.concat(element + ', ')
+            }
+        });
+        this.setState({ 
+            ingredients: foundSweeteners.length > 0 ? foundSweeteners.slice(0, foundSweeteners.length - 2) : foundSweeteners,
+            name: name 
+        })
+        }
   }
 
     getDescription = () => {
@@ -41,9 +50,17 @@ class FoodPage extends Component {
 
     render() {
         return (
-            <div className="App-header">
-                <h1>{this.props.name}</h1>
-                <h2>{this.getDescription()}</h2>
+            <div className="App">
+                <header>
+                    <div className="branding">
+                        <LogoLink />
+                    </div>
+                    <SearchBar showSearchResults={this.showSearchResults} />
+                </header>            
+                <div className="body">
+                    <h1>{this.state.name}</h1>
+                    <h2>{this.getDescription()}</h2>
+                </div>
             </div>
         );
     }
