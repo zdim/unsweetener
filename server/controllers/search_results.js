@@ -12,7 +12,7 @@ function processSearchResults(data) {
         });
         return { results: results };
     }
-    return null;
+    return { results: [] };
 }
 
 exports.handleSearchResults = processSearchResults;

@@ -1,0 +1,128 @@
+header {
+  background-color: #111111;
+  color: #fff;
+  border-bottom: darkgrey 1px solid;
+  padding: 12px;
+}
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.branding {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.landing h3,
+.branding h3 {
+  margin: 0;
+  padding: 0 8px 0 2px;
+}
+
+.body {
+  text-align: center;
+  background-color: #282c34;
+  min-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.body h1 {
+  text-transform: capitalize;
+}
+
+form {
+  width: 60%;
+}
+
+li {
+  list-style-type: none;
+  text-align: left;
+  background: #3b414d;
+  border: 1px solid #fff;
+  margin: 6px;
+  padding: 10px;
+}
+
+ul {
+  font-size: .8em;
+  text-transform: capitalize;
+}
+
+li a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+li a:visited {
+  color: lightblue;
+}
+
+li a:hover {
+  color: #fff;
+}
+
+header input[type=text] {
+  width: 60%;
+  display: inline-block;
+  border-width: 0;
+  border-radius: 4px;
+  background-color: #282c34;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 30px;
+  color: #fff;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+header input:hover[type=text] {
+  border: #cfcfcf solid 1px;
+}
+
+.body input[type=text] {
+  width: 100%;
+  display: inline-block;
+  border-width: 1px;
+  border-radius: 4px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.backButton {
+  border: none;
+  background-color: inherit;
+  font-size: .7em;
+  cursor: pointer;
+  display: inline-block;
+  color: #3498db;
+}
