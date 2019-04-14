@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import './App.css';
-import HomePage from './HomePage';
-import SearchPage from './SearchPage';
-import FoodPage from './FoodPage';
+import HomePage from './components/HomePage';
+import SearchPage from './components/SearchPage';
+import FoodPage from './components/FoodPage';
 
 class App extends Component {
   render() {

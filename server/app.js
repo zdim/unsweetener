@@ -14,7 +14,7 @@ app.use('/', searchRoutes);
 app.use('/item', itemRoutes);
 
 app.listen(port, (err) => {
-    if(err) {
+    if (err) {
         console.error(err);
     }
     console.log(`Listening on port ${port}`);
