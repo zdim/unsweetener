@@ -1,11 +1,12 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
 header {
   background-color: #111111;
   color: #fff;
-  min-height: 6vh;
+  padding: 20px 10px;
   border-bottom: darkgrey 1px solid;
   display: flex;  
   align-items: center;
@@ -18,7 +19,8 @@ header {
 
 .body {
   background-color: #282c34;
-  min-height: 94vh;
+  margin: 0;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
