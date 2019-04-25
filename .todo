@@ -8,3 +8,9 @@ Styling:
 ☐ "powered by usda api" footer
 ☐ "back to search results" link
 ☐ clean up search page to show what was searched for
+
+figure out what extension I have on desktop so I can put it on my laptop :)
+- test searchin with hyphens
+- fixed width search results
+- links to google/usda/wikipedia/something
+- fix problem since searching for "coca cola" doesn't bring back coca-cola as the first results... I guess make the search smarter, if possible

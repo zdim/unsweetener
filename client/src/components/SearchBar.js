@@ -1,24 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const SearchBar = ({ showSearchResults }) => {
   const [query, setQuery] = useState("");
+  const [placeholder, setPlaceholder] = useState("");
+
+  useEffect(() => {
+    setPlaceholder(getRandomFood());
+  })
 
   const handleSubmit = e => {
-    if (!query) {
-      e.preventDefault();
-      return;
-    }
-    const search = query + " upc";
+    const search = query || placeholder;
     const url = "http://localhost:5000/search";
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ search: search })
+      body: JSON.stringify({ search: search + " upc" })
     })
       .then(x => x.json())
-      .then(x => showSearchResults(x, query));
+      .then(x => showSearchResults(x, search));
     e.preventDefault();
   };
+
+  const getRandomFood = () => {
+    const foods = [
+      'Dr. Pepper',
+      'Tropicana Orange Juice',
+      'Flamin\' Hot Cheetos',
+      'Starbucks Iced Coffee',
+      'Chex Mix',
+      'La Croix',
+      'Honey Nut Cheerios',
+      'Sparkling Ice',
+      'Vitamin Water',
+      'Juicy Fruit',
+      'Coca Cola',
+      'Pringles',
+      'Lay\'s Potato Chips',
+      'Pizza Rolls',
+      'Bagel Bites',
+      'Taquitos'
+    ];
+    const somewhatRandomInteger = Math.floor(Math.random() * (foods.length - 1));
+    return foods[somewhatRandomInteger];
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -26,7 +50,7 @@ const SearchBar = ({ showSearchResults }) => {
         className="searchbar"
         type="text"
         onChange={e => setQuery(e.target.value)}
-        placeholder="Search..."
+        placeholder={placeholder}
       />
     </form>
   );

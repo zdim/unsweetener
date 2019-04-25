@@ -6,7 +6,7 @@ const BackToSearch = ( {history} ) => {
         <div>
             <button className="backButton"
                 onClick={history.goBack}>
-                Back to Search Results
+                &lt; back to search results &lt;
             </button>
         </div>
     )

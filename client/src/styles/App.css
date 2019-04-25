@@ -1,24 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .App {
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   height: 100vh;
 }
 
 header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-around;
+  align-items: center;
   background-color: #111111;
   color: #fff;
   padding: 20px 10px;
   border-bottom: darkgrey 1px solid;
 }
 
+h3 {
+  letter-spacing: .1em;
+}
+
 .landing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inherit;
 }
 
 .branding {
   display: flex;
+  justify-content: center;
+}
+
+.header-search {
+  display: flex;
   justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .landing h3,
@@ -29,7 +45,7 @@ header {
 
 .body {
   text-align: center;
-  background-color: #282c34;
+  background-color: #151b20;
   margin: 0;
   min-height: 90vh;
   display: flex;
@@ -44,17 +60,19 @@ header {
   text-transform: capitalize;
 }
 
-form {
+.body form {
   width: 60%;
 }
 
 li {
   list-style-type: none;
   text-align: left;
-  background: #3b414d;
-  border: 1px solid #fff;
-  margin: 6px;
+  background: #232429;
   padding: 10px;
+}
+
+li:nth-child(odd) {
+  background: #2b2c33;
 }
 
 ul {
@@ -75,42 +93,96 @@ li a:hover {
   color: #fff;
 }
 
-header input[type=text] {
-  width: 60%;
+input[type=text] {
   display: inline-block;
-  border-width: 0;
-  border-radius: 4px;
-  background-color: #282c34;
-  padding: 0 20px;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
   box-sizing: border-box;
-  height: 30px;
-  color: #fff;
-  min-width: 200px;
-  max-width: 400px;
 }
 
-header input:hover[type=text] {
-  border: #cfcfcf solid 1px;
+header input[type=text] {
+  width: 60%;
+  border-bottom: #999999 solid 1px;
+  height: 30px;
+  color: #999999;
+  min-width: 200px;
+  max-width: 400px;
+  padding-left: 10px;
 }
 
 .body input[type=text] {
   width: 100%;
-  display: inline-block;
-  border-width: 1px;
-  border-radius: 4px;
-  padding: 0 20px;
-  box-sizing: border-box;
+  border-bottom: #cfcfcf solid 1px;
   height: 40px;
+  color: #f3f3f3;
+  padding-left: 20px;
+  font-size: .8em;
+  letter-spacing: .05em;
+}
+
+header input:hover[type=text] {
+  border: #999999 solid 1px;
+}
+
+header form {
+  margin-left: 3%;
+}
+
+.body form {
+  padding: 3%;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: #ffffff solid 2px;
+}
+
+
+.search-results h2 {
+  margin: 40px 0;
+  font-weight: lighter;
+  font-size: 1.4em;
+  letter-spacing: .1em;
+  word-spacing: .1em;
+}
+
+.ingredients {
+  margin: 10%;
+}
+
+.ingredients h1 {
+  margin-bottom: 10%;
+  font-size: 1.8em;
+  letter-spacing: .075em;
+}
+
+.ingredients h2 {
+  font-size: 1.4em;
+  letter-spacing: .1em;
+  font-weight: lighter;
 }
 
 .loader {
-  border: 8px solid #f3f3f3;
+  border: 2px solid #646464;
   border-radius: 50%;
-  border-top: 8px solid #3498db;
-  width: 120px;
-  height: 120px;
+  border-top: 2px solid #3498db;
+  width: 180px;
+  height: 180px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
+}
+
+.usda-tag {
+  position: absolute;
+  bottom: 0;
+}
+
+.usda-tag p {
+  color: #9c9c9c;
+  font-size: .5em;
+  letter-spacing: .1em;
 }
 
 /* Safari */
@@ -127,8 +199,12 @@ header input:hover[type=text] {
 .backButton {
   border: none;
   background-color: inherit;
-  font-size: .7em;
+  font-size: .5em;
   cursor: pointer;
   display: inline-block;
-  color: #3498db;
+  color: #75a2c2;
+}
+
+.backButton:hover {
+  color: #fff;
 }

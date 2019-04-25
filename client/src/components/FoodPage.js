@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import "../styles/App.css";
 import SearchBar from "./SearchBar";
 import LogoLink from "./LogoLink";
 import Loader from "./Loader";
 import BackToSearch from "./BackToSearch";
-import { Redirect } from "react-router-dom";
+import Icon from "./Icon";
 
 const FoodPage = props => {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,8 +48,8 @@ const FoodPage = props => {
 
   const getDescription = () => {
     return ingredients
-      ? `Contains ${ingredients}!`
-      : `Does not contain sweeteners!`;
+      ? `contains ${ingredients}`
+      : 'does not contain sweeteners';
   };
 
   const showSearchResults = (results, query) => {
@@ -69,7 +70,7 @@ const FoodPage = props => {
 
   if (items) {
     return (
-      <Redirect
+      <Redirect push
         to={{
           pathname: "/search",
           state: { items: items, query: query }
@@ -80,11 +81,12 @@ const FoodPage = props => {
     return (
       <div className="App">
         <header>
-          <div className="branding">
-            <LogoLink />
+          <div className="header-search">
+            <Icon name="search-icon" color="#999999" size={16} />
             <SearchBar showSearchResults={showSearchResults} />
           </div>
-        </header>
+          <LogoLink />
+      </header>
         {isLoading ? (
           <div className="body">
             <Loader />
@@ -92,8 +94,10 @@ const FoodPage = props => {
         ) : (
           <div className="body">
             <BackToSearch history={props.history} />
-            <h1>{name}</h1>
-            <h2>{getDescription()}</h2>
+            <div className="ingredients">
+              <h1>{name}</h1>
+              <h2>{getDescription()}</h2>
+            </div>
           </div>
         )}
       </div>

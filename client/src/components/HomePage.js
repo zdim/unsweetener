@@ -25,16 +25,16 @@ const HomePage = () => {
   }
 
   return (
-    <div>
-      <header>
-        <div className="landing">
-          <h3>unsweetener</h3>
-          <LogoLink />
-        </div>
+    <div className="App">
+      <header className="landing">
+        <LogoLink />
       </header>
       <div className="body">
-        <h2>Find out which foods or drinks have sweeteners added!</h2>
+        <h3>discover which foods and drinks have sweeteners added</h3>
         <SearchBar showSearchResults={showSearchResults} />
+        <div className="usda-tag">
+          <p>powered by the <span style={{ fontWeight: "bold" }}>USDA</span> APIs</p>
+        </div>
       </div>
     </div>
   );
