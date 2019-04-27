@@ -10,7 +10,7 @@ const SearchBar = ({ showSearchResults }) => {
 
   const handleSubmit = e => {
     const search = query || placeholder;
-    const url = "http://localhost:5000/search";
+    const url = "/.netlify/functions/app/search";
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -31,7 +31,7 @@ const SearchBar = ({ showSearchResults }) => {
       'La Croix',
       'Honey Nut Cheerios',
       'Sparkling Ice',
-      'Vitamin Water',
+      'VitaminWater',
       'Juicy Fruit',
       'Coca Cola',
       'Pringles',

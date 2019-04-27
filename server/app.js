@@ -1,21 +1,21 @@
 require('dotenv').config();
 const express = require('express');
+const serverless = require('serverless-http');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const port = process.env.PORT;
-const app = express();
 const searchRoutes = require('./routes/search');
 const itemRoutes = require('./routes/item');
+
+const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/', searchRoutes);
-app.use('/item', itemRoutes);
+//app.use('/', searchRoutes);
+//app.use('/item', itemRoutes);
 
-app.listen(port, (err) => {
-    if (err) {
-        console.error(err);
-    }
-    console.log(`Listening on port ${port}`);
-});
+app.use('/.netlify/functions/app', searchRoutes);
+app.use('/.netlify/functions/app/item', itemRoutes);
+
+module.exports = app;
+module.exports.handler = serverless(app);

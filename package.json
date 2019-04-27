@@ -1,0 +1,26 @@
+{
+  "name": "unsweetener",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "start:lambda": "netlify-lambda serve server",
+    "build:lambda": "netlify-lambda build server",
+    "start:app": "cd client && npm start",
+    "build:app": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zdim/unsweetener.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zdim/unsweetener/issues"
+  },
+  "homepage": "https://github.com/zdim/unsweetener#readme",
+  "dependencies": {
+    "netlify-lambda": "^1.4.5"
+  }
+}

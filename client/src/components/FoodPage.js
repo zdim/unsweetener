@@ -59,7 +59,7 @@ const FoodPage = props => {
 
   useEffect(() => {
     const { id } = props.match.params;
-    const url = `http://localhost:5000/item/${id}`;
+    const url = `/.netlify/functions/app/item/${id}`;
     fetch(url, {
       method: "GET",
       headers: { "Content-Type": "application/json" }

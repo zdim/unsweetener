@@ -1,16 +1,19 @@
 Styling:
-    ☐ fix header
+    ✔ fix header @done (4/25/2019, 7:17:59 PM)
     ☐ display ingredients better
 
 ☐ fix the "no search results" case
-☐ maybe show examples of things to search in the search bar instead of "search..."
+✔ maybe show examples of things to search in the search bar instead of "search..." @done (4/25/2019, 7:17:53 PM)
 ☐ show more information about the food item
-☐ "powered by usda api" footer
-☐ "back to search results" link
-☐ clean up search page to show what was searched for
+✔ "powered by usda api" footer @done (4/25/2019, 7:17:23 PM)
+✔ "back to search results" link @done (4/25/2019, 7:17:25 PM)
+✔ clean up search page to show what was searched for @done (4/25/2019, 7:17:28 PM)
 
 figure out what extension I have on desktop so I can put it on my laptop :)
-- test searchin with hyphens
-- fixed width search results
-- links to google/usda/wikipedia/something
-- fix problem since searching for "coca cola" doesn't bring back coca-cola as the first results... I guess make the search smarter, if possible
+sandy081.todotasks
+
+
+☐ test searching with hyphens
+☐ fixed width search results
+☐ links to google/usda/wikipedia/something
+☐ fix problem since searching for "coca cola" doesn't bring back coca-cola as the first results... I guess make the search smarter, if possible

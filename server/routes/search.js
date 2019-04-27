@@ -9,6 +9,7 @@ router.route('/search')
             const { search } = req.body;
             if(search) {
                 const results = await usda.search(search);
+                console.log(results);
                 res.send(controller.handleSearchResults(results));
             }
         } catch (e) {
