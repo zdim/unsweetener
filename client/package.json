@@ -1,5 +1,5 @@
 {
-  "name": "unsweetener",
+  "name": "unsweetener-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

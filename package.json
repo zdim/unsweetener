@@ -2,9 +2,11 @@
   "name": "unsweetener",
   "version": "0.0.0",
   "scripts": {
+    "start": "run-p start:**",
     "start:lambda": "netlify-lambda serve server",
-    "build:lambda": "netlify-lambda build server",
     "start:app": "cd client && npm start",
+    "build": "run-p build:**",
+    "build:lambda": "netlify-lambda build server",
     "build:app": "cd client && npm run build",
     "deploy:draft": "netlify deploy --dir=client/build --functions=functions",
     "deploy:prod": "netlify deploy --dir=client/build --functions=functions --prod"
@@ -23,5 +25,8 @@
   "dependencies": {
     "encoding": "^0.1.12",
     "netlify-lambda": "^1.4.5"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }
