@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/zdim/unsweetener#readme",
   "dependencies": {
+    "encoding": "^0.1.12",
     "netlify-lambda": "^1.4.5"
   }
 }

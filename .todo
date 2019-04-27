@@ -17,3 +17,4 @@ sandy081.todotasks
 ☐ fixed width search results
 ☐ links to google/usda/wikipedia/something
 ☐ fix problem since searching for "coca cola" doesn't bring back coca-cola as the first results... I guess make the search smarter, if possible
+☐ error handling when search breaks (maybe make the search bar red?)
