@@ -1,13 +1,13 @@
 {
   "name": "unsweetener",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
+  "version": "0.0.0",
   "scripts": {
     "start:lambda": "netlify-lambda serve server",
     "build:lambda": "netlify-lambda build server",
     "start:app": "cd client && npm start",
-    "build:app": "cd client && npm run build"
+    "build:app": "cd client && npm run build",
+    "deploy:draft": "netlify deploy --dir=client/build --functions=functions",
+    "deploy:prod": "netlify deploy --dir=client/build --functions=functions --prod"
   },
   "repository": {
     "type": "git",
