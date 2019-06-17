@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { search as searchApi, getRandomFood } from "../controllers/search";
 import styled from "styled-components";
+import { getRandomFood, search as searchApi } from "../controllers/search";
 
-const SearchBar = ({ showSearchResults }) => {
+const HeaderSearchBar = showSearchResults => {
   const [query, setQuery] = useState("");
   const [placeholder, setPlaceholder] = useState("");
 
@@ -17,9 +17,8 @@ const SearchBar = ({ showSearchResults }) => {
   };
 
   const SearchForm = styled.form`
-    width: 60%;
-    padding: 3%;
-  `
+    margin-left: 3%;
+  `;
 
   const SearchInput = styled.input`
     display: inline-block;
@@ -28,17 +27,15 @@ const SearchBar = ({ showSearchResults }) => {
     border-left: none;
     border-right: none;
     box-sizing: border-box;
-    width: 100%;
-    border-bottom: #cfcfcf solid 1px;
-    height: 40px;
-    color: #f3f3f3;
-    padding-left: 20px;
-    font-size: 0.8em;
-    letter-spacing: 0.05em;
-    &:focus { 
-      outline: none;
-      border-bottom: #ffffff solid 2px;
-    }
+    width: 60%;
+    border-bottom: #999999 solid 1px;
+    height: 30px;
+    color: #999999;
+    min-width: 200px;
+    max-width: 400px;
+    padding-left: 10px;
+    &:hover { border-bottom: #fff solid 1px; }
+    &:focus { outline: none; }
   `;
 
   return (
@@ -52,4 +49,4 @@ const SearchBar = ({ showSearchResults }) => {
   );
 };
 
-export default SearchBar;
+export default HeaderSearchBar;

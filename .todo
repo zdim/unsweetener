@@ -9,12 +9,9 @@ Styling:
 ✔ "back to search results" link @done (4/25/2019, 7:17:25 PM)
 ✔ clean up search page to show what was searched for @done (4/25/2019, 7:17:28 PM)
 
-figure out what extension I have on desktop so I can put it on my laptop :)
-sandy081.todotasks
-
-
 ☐ test searching with hyphens
 ☐ fixed width search results
 ☐ links to google/usda/wikipedia/something
 ☐ fix problem since searching for "coca cola" doesn't bring back coca-cola as the first results... I guess make the search smarter, if possible
 ☐ error handling when search breaks (maybe make the search bar red?)
+☐ do something about all the duplicates

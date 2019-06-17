@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import "../styles/App.css";
-import SearchBar from "./SearchBar";
+import styled from "styled-components";
 import LogoLink from "./LogoLink";
 import Loader from "./Loader";
+import Header from "./Header";
 import BackToSearch from "./BackToSearch";
-import Icon from "./Icon";
+import HeaderSearch from "./HeaderSearch";
 
 const FoodPage = props => {
   const [isLoading, setIsLoading] = useState(true);
   const [ingredients, setIngredients] = useState("");
   const [name, setName] = useState("");
   const [items, setItems] = useState(null);
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const checkIngredients = ing => {
     if (ing) {
@@ -28,7 +29,8 @@ const FoodPage = props => {
         "SACCHARIN",
         "ACESULFAME K",
         "XYLITOL",
-        "SORBITOL"
+        "SORBITOL",
+        "HIGH FRUCTOSE CORN SYRUP"
       ];
       let foundSweeteners = "";
       sweeteners.forEach(element => {
@@ -49,7 +51,7 @@ const FoodPage = props => {
   const getDescription = () => {
     return ingredients
       ? `contains ${ingredients}`
-      : 'does not contain sweeteners';
+      : "does not contain sweeteners";
   };
 
   const showSearchResults = (results, query) => {
@@ -68,9 +70,20 @@ const FoodPage = props => {
       .then(x => checkIngredients(x));
   });
 
+  const FoodName = styled.h1`
+    margin-bottom: 10%;
+    font-size: 1.8em;
+  `;
+
+  const Ingredients = styled.h2`
+    font-size: 1.4em;
+    font-weight: lighter;
+  `;
+
   if (items) {
     return (
-      <Redirect push
+      <Redirect
+        push
         to={{
           pathname: "/search",
           state: { items: items, query: query }
@@ -80,13 +93,10 @@ const FoodPage = props => {
   } else {
     return (
       <div className="App">
-        <header>
-          <div className="header-search">
-            <Icon name="search-icon" color="#999999" size={16} />
-            <SearchBar showSearchResults={showSearchResults} />
-          </div>
+        <Header>
+          <HeaderSearch showSearchResults={showSearchResults} />
           <LogoLink />
-      </header>
+        </Header>
         {isLoading ? (
           <div className="body">
             <Loader />
@@ -94,9 +104,9 @@ const FoodPage = props => {
         ) : (
           <div className="body">
             <BackToSearch history={props.history} />
-            <div className="ingredients">
-              <h1>{name}</h1>
-              <h2>{getDescription()}</h2>
+            <div style={{margin: "10%"}}>
+              <FoodName>{name}</FoodName>
+              <Ingredients>{getDescription()}</Ingredients>
             </div>
           </div>
         )}

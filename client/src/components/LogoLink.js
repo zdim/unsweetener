@@ -1,17 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const LogoLink = () => {
+
+  const Branding = styled.div`
+    display: flex;
+    justify-content: center;
+  `
+
+  const HeaderText = styled.h3`
+    margin: 0;
+    padding: 0 8px 0 2px;
+  `
+
   return (
     <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
-      <div className="branding">
-        <h3>unsweetener</h3>
-        <h3>
+      <Branding>
+        <HeaderText>unsweetener</HeaderText>
+        <HeaderText>
           <span role="img" aria-label="Lollipop">
             🍭
           </span>
-        </h3>
-      </div>
+        </HeaderText>
+      </Branding>
     </Link>
   );
 };

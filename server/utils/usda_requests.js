@@ -3,7 +3,7 @@ const fetch = require('node-fetch').default;
 const KEY = process.env.KEY;
 
 const searchRequest = async query => {
-    const apiUrl = `https://api.nal.usda.gov/ndb/search/?format=json&q=${query}&sort=r&max=25&offset=0&api_key=${KEY}`;
+    const apiUrl = `https://api.nal.usda.gov/ndb/search/?format=json&q=${query}&sort=r&max=25&offset=0&ds=Branded Food Products&api_key=${KEY}`;
     return fetch(apiUrl)
         .then(data => data.json());
 }
