@@ -2,6 +2,7 @@
   "name": "unsweetener",
   "version": "0.0.0",
   "scripts": {
+    "init:all": "npm install && npm --prefix ./client install ./client && npm --prefix ./server install ./server",
     "start": "run-p start:**",
     "start:lambda": "netlify-lambda serve server",
     "start:app": "cd client && npm start",
