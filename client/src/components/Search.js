@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getRandomFood } from '../controllers/search'
 import { useHistory } from 'react-router-dom'
+import styled from 'styled-components'
 
 export const Search = () => {
 	const [query, setQuery] = useState('')
@@ -17,6 +18,8 @@ export const Search = () => {
 		history.push(`/search?q=${encodeURIComponent(search)}`)
 		e.preventDefault()
 	}
+
+	const Form = styled.form``
 
 	return (
 		<form onSubmit={handleSubmit}>
