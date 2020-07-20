@@ -16,17 +16,17 @@ export const getRandomFood = () => {
 		'Pizza Rolls',
 		'Bagel Bites',
 		'Taquitos',
-	]
-	const somewhatRandomInteger = Math.floor(Math.random() * (foods.length - 1))
-	return foods[somewhatRandomInteger]
-}
+	];
+	const somewhatRandomInteger = Math.floor(Math.random() * (foods.length - 1));
+	return foods[somewhatRandomInteger];
+};
 
 export const search = async (search) => {
-	const url = '/.netlify/functions/app/search'
+	const url = '/.netlify/functions/app/search';
 	return await fetch(url, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ search: search + ' upc' }),
-	}).then((x) => x.json())
+		body: JSON.stringify({ search }),
+	}).then((x) => x.json());
 	//.then(x => showSearchResults(x, search));
-}
+};
