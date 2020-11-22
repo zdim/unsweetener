@@ -1,12 +1,9 @@
 const fetch = require('node-fetch').default;
-const fauna = require('faunadb'),
-	q = fauna.query;
-//const KEY = process.env.KEY;
-const KEY = process.env.FAUNA_KEY;
-const client = new fauna.client({ secret: KEY });
+const KEY = process.env.KEY;
+
 const searchRequest = async (query) => {
-	//const apiUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${KEY}`;
-	db.query();
+	const apiUrl = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${KEY}`;
+	console.log('SEARCHING FOR -> ' + query);
 
 	const data = {
 		query,
