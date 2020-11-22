@@ -13,8 +13,7 @@ To start quickly, from the root directory:
 
 ### Data
 
-Currently, there is no database for this app. All data is retrieved directly from the USDA APIs, manipulated as necessary, then returned to the client.
-
-This isn't exactly ideal since it doesn't allow for mutation of the data itself to fit the needs of this app, on top of the fact that the USDA holds much more data than needed for these purposes.
+Currently, there is no database for this app. All data is retrieved directly from the USDA APIs, manipulated as necessary, then returned to the client. This isn't ideal since it doesn't allow for mutation of the data itself to fit the needs of this app, on top of the fact that the USDA holds much more data than needed for this app's intention.
 
 One of the next-ups is to build a database using the exported USDA data [found here](https://fdc.nal.usda.gov/download-datasets.html).
+The effort for that is ongoing and found in [this repo](https://github.com/zdim/food-data-parser).
