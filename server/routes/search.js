@@ -8,8 +8,10 @@ router.route('/search').post(async (req, res) => {
 	try {
 		const { search } = req.body;
 		if (search) {
-			const results = await fauna.search(search);
-			//const results = await usda.search(search);
+			// fauna isn't going well :(
+			//const results = await fauna.search(search);
+
+			const results = await usda.search(search);
 			console.log(results);
 			res.send(controller.handleSearchResults(results));
 		}

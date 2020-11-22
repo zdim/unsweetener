@@ -8,12 +8,12 @@ const searchRequest = async (query) => {
 
 	const response = await client.query(
 		q.Filter(
-			q.Paginate(q.Match(q.Index('index'))),
+			q.Paginate(q.Match(q.Index('all_names_and_brands'))),
 			q.Lambda(
-				['description', 'brand_owner'],
-				q.ContainsStr(q.LowerCase(q.Var('description')), 'tomato'),
-			),
-		),
+				['description', 'brand_owner', 'ref'],
+				q.ContainsStr(q.LowerCase(q.Var('description')), 'tomato')
+			)
+		)
 	);
 
 	console.log(`SEARCH RESPONSE: ${JSON.stringify(response)}`);
