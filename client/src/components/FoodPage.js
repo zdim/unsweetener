@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import '../styles/App.css';
 import styled from 'styled-components';
-import LogoLink from './LogoLink';
-import Loader from './Loader';
-import Header from './Header';
-import BackToSearch from './BackToSearch';
-import HeaderSearch from './HeaderSearch';
+import { LogoLink } from './LogoLink';
+import { Loader } from './Loader';
+import { Header } from './Header';
+import { BackToSearch } from './BackToSearch';
+import { HeaderSearch } from './HeaderSearch';
 
-const FoodPage = (props) => {
+export const FoodPage = (props) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [ingredients, setIngredients] = useState('');
 	const [name, setName] = useState('');
@@ -68,7 +68,7 @@ const FoodPage = (props) => {
 		})
 			.then((x) => x.json())
 			.then((x) => checkIngredients(x));
-	});
+	}, [props.match.params]);
 
 	const FoodName = styled.h1`
 		margin-bottom: 10%;
@@ -78,6 +78,12 @@ const FoodPage = (props) => {
 	const Ingredients = styled.h2`
 		font-size: 1.4em;
 		font-weight: lighter;
+	`;
+
+	const LoaderContainer = styled.div`
+		display: flex;
+		justify-content: center;
+		margin-top: 8rem;
 	`;
 
 	if (items) {
@@ -94,25 +100,25 @@ const FoodPage = (props) => {
 		return (
 			<div className='App'>
 				<Header>
-					<HeaderSearch showSearchResults={showSearchResults} />
 					<LogoLink />
+					<HeaderSearch showSearchResults={showSearchResults} />
 				</Header>
-				{isLoading ? (
-					<div className='body'>
-						<Loader />
-					</div>
-				) : (
-					<div className='body'>
-						<BackToSearch history={props.history} />
-						<div style={{ margin: '10%' }}>
-							<FoodName>{name}</FoodName>
-							<Ingredients>{getDescription()}</Ingredients>
-						</div>
-					</div>
-				)}
+				<div className='body'>
+					{isLoading ? (
+						<LoaderContainer>
+							<Loader />
+						</LoaderContainer>
+					) : (
+						<>
+							<BackToSearch history={props.history} />
+							<div style={{ margin: '10%' }}>
+								<FoodName>{name}</FoodName>
+								<Ingredients>{getDescription()}</Ingredients>
+							</div>
+						</>
+					)}
+				</div>
 			</div>
 		);
 	}
 };
-
-export default FoodPage;

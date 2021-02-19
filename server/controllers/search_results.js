@@ -1,14 +1,15 @@
 function processSearchResults(data) {
-	if (data && data.foods) {
-		const list = data.foods;
-		const results = list.map((x) => {
+	if (data) {
+		const results = data.map((x) => {
 			return {
-				id: x.fdcId,
+				id: x._id,
+				fdc_id: x.fdc_id,
 				name: x.description,
-				offset: x.offset,
+				brand: x.brand_owner,
+				//offset: x.offset,
 			};
 		});
-		return { results: results };
+		return { results };
 	}
 	return { results: [] };
 }

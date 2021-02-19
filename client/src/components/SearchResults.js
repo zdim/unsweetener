@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
-import Loader from './Loader';
+import { Link } from 'react-router-dom';
+import { Loader } from './Loader';
 
 const List = styled.ul`
-	font-size: 0.8em;
+	font-size: 1rem;
+	margin: 0;
+	padding: 2rem;
 	text-transform: capitalize;
 `;
 
@@ -12,21 +14,18 @@ const ListItem = styled.li`
 	list-style-type: none;
 	text-align: left;
 	background: #151b20;
-	border-left: 2px solid #212a31;
-	border-right: 2px solid #212a31;
 	padding: 10px;
 	&:nth-child(odd) {
 		background: #212a31;
 		border: none;
 	}
-	&:last-child {
-		border-bottom: 2px solid #212a31;
-	}
 `;
 
 const ListLink = styled(Link)`
 	text-decoration: none;
+	text-transform: lowercase;
 	color: lightblue;
+	line-height: 133%;
 	&:visited {
 		color: lightblue;
 	}
@@ -35,39 +34,32 @@ const ListLink = styled(Link)`
 	}
 `;
 
-const SearchResults = (props) => {
-	const [items, setItems] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+const LoaderContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	margin-top: 5rem;
+`;
 
-	useEffect(() => {
-		if (!props.items) {
-			setItems([]);
-		} else if (props.items.length === 0) {
-			setItems(['No results found!']);
-		} else {
-			const searchResults = props.items.map((i) => (
-				<ListItem key={i.id}>
-					<ListLink
-						to={{
-							pathname: '/item/' + i.id,
-							state: i,
-						}}
-					>
-						{i.name.toLowerCase()}
-					</ListLink>
-				</ListItem>
-			));
+export const SearchResults = ({ items, isLoading }) => {
+	const results = React.useMemo(() => {
+		if (!items || !items.length) return [];
 
-			setItems(searchResults);
-		}
-		setIsLoading(false);
-	}, [props.items]);
+		return items.map((item) => (
+			<ListItem key={`${item.name}-${item.id}`}>
+				<ListLink to={{ pathname: '/item/' + item.id, state: item }}>
+					{item.name}
+				</ListLink>
+			</ListItem>
+		));
+	}, [items]);
 
 	return isLoading ? (
-		<Loader />
-	) : items.length > 0 ? (
-		<List>{items}</List>
-	) : null;
+		<LoaderContainer>
+			<Loader />
+		</LoaderContainer>
+	) : items?.length > 0 ? (
+		<List>{results}</List>
+	) : (
+		'No results found!'
+	);
 };
-
-export default SearchResults;

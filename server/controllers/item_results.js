@@ -1,4 +1,5 @@
 function processItemData(data) {
+	console.log(data);
 	if (data) {
 		return {
 			name: data.description,
