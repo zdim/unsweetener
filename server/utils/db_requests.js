@@ -1,8 +1,8 @@
 const { MongoClient, ObjectId } = require('mongodb');
 
-const { db, system_password } = process.env;
+const { db, netlify_db_key, mongodb_uri } = process.env;
 
-const uri = `mongodb+srv://system:${system_password}@cluster0.2iwwa.mongodb.net/${db}?retryWrites=true&w=majority`;
+const uri = mongodb_uri.replace('$pass$', netlify_db_key).replace('$db$', db);
 
 let client = null;
 

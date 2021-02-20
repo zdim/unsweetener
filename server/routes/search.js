@@ -1,6 +1,5 @@
 const express = require('express');
 const controller = require('../controllers/search_results');
-const usda = require('../utils/usda_requests');
 const db = require('../utils/db_requests');
 const router = express.Router();
 

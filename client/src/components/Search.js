@@ -24,7 +24,7 @@ export const Search = ({ type, className }) => {
 				border-bottom: #ffffff solid 1px;
 			}
 		`;
-	}, []);
+	}, [type]);
 
 	const [query, setQuery] = React.useState('');
 	const [placeholder, setPlaceholder] = React.useState('');
