@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const BackToSearch = ({ history }) => {
 	const BackButton = styled.button`
-		margin-top: 6rem;
+		margin-top: 3rem;
 		border: none;
 		background-color: inherit;
 		font-size: 0.8rem;
@@ -16,7 +16,9 @@ export const BackToSearch = ({ history }) => {
 
 	return (
 		<div>
-			<BackButton onClick={history.goBack}>back to search results</BackButton>
+			<BackButton onClick={history.goBack}>
+				back to search results
+			</BackButton>
 		</div>
 	);
 };

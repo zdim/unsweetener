@@ -13,8 +13,7 @@ export const HomePage = () => {
 
 	const FooterText = styled.p`
 		color: #9c9c9c;
-		font-size: 0.8rem;
-		letter-spacing: 0.1em;
+		font-size: 0.6rem;
 	`;
 
 	const Container = styled.div`
@@ -42,7 +41,7 @@ export const HomePage = () => {
 	}, []);
 
 	return (
-		<div className='App'>
+		<div className="App">
 			<Header>
 				<LogoLink />
 			</Header>
@@ -50,11 +49,9 @@ export const HomePage = () => {
 				<HeaderText>
 					discover which foods and drinks have sweeteners added
 				</HeaderText>
-				<SearchBar type='main' />
+				<SearchBar type="main" />
 				<Footer>
-					<FooterText>
-						data sourced from the <strong>USDA</strong>
-					</FooterText>
+					<FooterText>data sourced from the USDA</FooterText>
 				</Footer>
 			</Container>
 		</div>

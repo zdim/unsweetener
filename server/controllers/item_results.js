@@ -4,6 +4,7 @@ function processItemData(data) {
 		return {
 			name: data.description,
 			ingredients: data.ingredients,
+			brand: data.brand,
 		};
 	}
 	return { error: 'No item found!' };

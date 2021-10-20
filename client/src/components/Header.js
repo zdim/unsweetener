@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Header = (props) => {
 	const HeaderBar = styled.header`
-		position: absolute;
+		position: sticky;
 		width: 100%;
 		display: flex;
 		justify-content: space-between;

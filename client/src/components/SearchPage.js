@@ -28,23 +28,24 @@ export const SearchPage = (props) => {
 	}, [props.location.search]);
 
 	const SearchResultsTitle = styled.h2`
-		margin-top: 6rem;
-		margin-bottom: 3rem;
+		margin: 3rem 0;
 		font-weight: lighter;
 		font-size: 2rem;
 	`;
 
 	return (
-		<div className='App'>
+		<div className="App">
 			<Header>
 				<LogoLink />
 				<HeaderSearch />
 			</Header>
-			<div className='body'>
+			<div className="body">
 				<div>
 					<SearchResultsTitle>
 						results for{' '}
-						<span style={{ fontWeight: 'lighter', color: '#84c3d6' }}>
+						<span
+							style={{ fontWeight: 'lighter', color: '#84c3d6' }}
+						>
 							{query}
 						</span>
 					</SearchResultsTitle>

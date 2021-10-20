@@ -5,35 +5,30 @@ import styled from 'styled-components';
 
 export const Search = ({ type, className }) => {
 	const Input = React.useMemo(() => {
+		const isHeader = type === 'header';
 		return styled.input`
 			display: inline-block;
 			background: transparent;
 			border-top: none;
 			border-left: none;
 			border-right: none;
-			box-sizing: border-box;
 			width: 100%;
-			border-bottom: #cfcfcf solid 1px;
-			height: 2rem;
+			border-bottom: ${isHeader ? 'none' : '#cfcfcf solid 1px'};
 			color: #f3f3f3;
-			padding-left: 1rem;
-			font-size: ${type === 'header' ? '.8rem' : '1rem'};
+			padding: 0.5rem;
+			font-size: ${isHeader ? '.8rem' : '1rem'};
 			font-family: inherit;
 			&:focus {
 				outline: none;
-				border-bottom: #ffffff solid 1px;
+				border-bottom: ${isHeader ? 'none' : '#ffffff solid 1px'};
 			}
 		`;
 	}, [type]);
 
 	const [query, setQuery] = React.useState('');
-	const [placeholder, setPlaceholder] = React.useState('');
+	const placeholder = React.useMemo(() => getRandomFood(), []);
 
 	const history = useHistory();
-
-	React.useEffect(() => {
-		setPlaceholder(getRandomFood());
-	}, []);
 
 	const handleSubmit = (e) => {
 		const search = query || placeholder;
@@ -44,7 +39,7 @@ export const Search = ({ type, className }) => {
 	return (
 		<form className={className} onSubmit={handleSubmit}>
 			<Input
-				type='text'
+				type="text"
 				value={query}
 				onChange={(e) => setQuery(e.target.value)}
 				placeholder={placeholder}

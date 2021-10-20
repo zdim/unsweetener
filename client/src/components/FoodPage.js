@@ -12,6 +12,7 @@ export const FoodPage = (props) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [ingredients, setIngredients] = useState('');
 	const [name, setName] = useState('');
+	const [brand, setBrand] = useState(null);
 	const [items, setItems] = useState(null);
 	const [query, setQuery] = useState('');
 
@@ -21,7 +22,7 @@ export const FoodPage = (props) => {
 				setName('No item found!');
 				return;
 			}
-			const { ingredients, name } = ing;
+			const { ingredients, name, brand } = ing;
 			const sweeteners = [
 				'SUGAR',
 				'ASPARTAME',
@@ -40,10 +41,13 @@ export const FoodPage = (props) => {
 			});
 			setIngredients(
 				foundSweeteners.length > 0
-					? foundSweeteners.slice(0, foundSweeteners.length - 2).toLowerCase()
+					? foundSweeteners
+							.slice(0, foundSweeteners.length - 2)
+							.toLowerCase()
 					: foundSweeteners
 			);
 			setName(name.toLowerCase());
+			setBrand(brand);
 			setIsLoading(false);
 		}
 	};
@@ -98,12 +102,12 @@ export const FoodPage = (props) => {
 		);
 	} else {
 		return (
-			<div className='App'>
+			<div className="App">
 				<Header>
 					<LogoLink />
 					<HeaderSearch showSearchResults={showSearchResults} />
 				</Header>
-				<div className='body'>
+				<div className="body">
 					{isLoading ? (
 						<LoaderContainer>
 							<Loader />
@@ -112,6 +116,7 @@ export const FoodPage = (props) => {
 						<>
 							<BackToSearch history={props.history} />
 							<div style={{ margin: '10%' }}>
+								<p>{brand}</p>
 								<FoodName>{name}</FoodName>
 								<Ingredients>{getDescription()}</Ingredients>
 							</div>

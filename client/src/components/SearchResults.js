@@ -6,7 +6,7 @@ import { Loader } from './Loader';
 const List = styled.ul`
 	font-size: 1rem;
 	margin: 0;
-	padding: 2rem;
+	padding: 0 2rem 2rem 2rem;
 	text-transform: capitalize;
 `;
 
@@ -15,8 +15,9 @@ const ListItem = styled.li`
 	text-align: left;
 	background: #151b20;
 	padding: 10px;
+	border-radius: 4px;
 	&:nth-child(odd) {
-		background: #212a31;
+		background: rgba(255, 255, 255, 0.025);
 		border: none;
 	}
 `;
@@ -34,6 +35,12 @@ const ListLink = styled(Link)`
 	}
 `;
 
+const Brand = styled.p`
+	text-transform: uppercase;
+	font-size: 0.6rem;
+	margin: 0.1rem 0 0 0;
+`;
+
 const LoaderContainer = styled.div`
 	display: flex;
 	justify-content: center;
@@ -49,6 +56,7 @@ export const SearchResults = ({ items, isLoading }) => {
 				<ListLink to={{ pathname: '/item/' + item.id, state: item }}>
 					{item.name}
 				</ListLink>
+				<Brand>{item.brand}</Brand>
 			</ListItem>
 		));
 	}, [items]);
