@@ -15,3 +15,16 @@ Styling:
 ☐ fix problem since searching for "coca cola" doesn't bring back coca-cola as the first results... I guess make the search smarter, if possible
 ☐ error handling when search breaks (maybe make the search bar red?)
 ☐ do something about all the duplicates
+
+
+Notes:
+    need to do something about the terrible search results
+    e.g. search "pizza rolls" and see a monstrosity show as the first results
+    > SAUSAGE & PEPPERONI SEASONED PORK, CHICKEN AND BEEF PIZZA TOPPING PIZZA IN A GOLDEN CRUST PIZZA SNACKS ROLLS, SAUSAGE & PEPPERONI
+    :up: that's the name
+
+    possibility, add some type of "report this" or "suggest change" button or link to the food page
+    need to create a table in the db that tracks these reports
+    from there, either make the updates by hand?
+    store the updates in a separate overrides table
+    that would potentially increase the requests per food item, since we'll need to grab both the original food item as well as the overrides
