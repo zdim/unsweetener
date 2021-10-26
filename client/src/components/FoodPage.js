@@ -8,6 +8,22 @@ import { Header } from './Header';
 import { BackToSearch } from './BackToSearch';
 import { HeaderSearch } from './HeaderSearch';
 
+const FoodName = styled.h1`
+	margin-bottom: 10%;
+	font-size: 1.8em;
+`;
+
+const Ingredients = styled.h2`
+	font-size: 1.4em;
+	font-weight: lighter;
+`;
+
+const LoaderContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	margin-top: 8rem;
+`;
+
 export const FoodPage = (props) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [ingredients, setIngredients] = useState('');
@@ -35,7 +51,7 @@ export const FoodPage = (props) => {
 			];
 			let foundSweeteners = '';
 			sweeteners.forEach((element) => {
-				if (ingredients.includes(element)) {
+				if (ingredients.toUpperCase().includes(element)) {
 					foundSweeteners = foundSweeteners.concat(element + ', ');
 				}
 			});
@@ -73,22 +89,6 @@ export const FoodPage = (props) => {
 			.then((x) => x.json())
 			.then((x) => checkIngredients(x));
 	}, [props.match.params]);
-
-	const FoodName = styled.h1`
-		margin-bottom: 10%;
-		font-size: 1.8em;
-	`;
-
-	const Ingredients = styled.h2`
-		font-size: 1.4em;
-		font-weight: lighter;
-	`;
-
-	const LoaderContainer = styled.div`
-		display: flex;
-		justify-content: center;
-		margin-top: 8rem;
-	`;
 
 	if (items) {
 		return (

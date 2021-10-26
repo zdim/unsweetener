@@ -10,7 +10,6 @@ export const Header = (props) => {
 		align-items: center;
 		background-color: #111111;
 		color: #fff;
-		border-bottom: darkgrey 1px solid;
 	`;
 
 	return <HeaderBar>{props.children}</HeaderBar>;

@@ -6,6 +6,7 @@ export const LogoLink = () => {
 	const Branding = styled.div`
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		margin: 1rem;
 	`;
 
@@ -14,14 +15,20 @@ export const LogoLink = () => {
 		padding: 0 8px 0 2px;
 	`;
 
+	const Icon = styled.span`
+		padding-left: 0.5rem;
+	`;
+
 	return (
-		<Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>
+		<Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
 			<Branding>
-				<HeaderText>unsweetener</HeaderText>
 				<HeaderText>
-					<span role='img' aria-label='Lollipop'>
-						🍭
-					</span>
+					unsweetener
+					<Icon>
+						<span role="img" aria-label="Lollipop">
+							🍭
+						</span>
+					</Icon>
 				</HeaderText>
 			</Branding>
 		</Link>
