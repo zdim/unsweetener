@@ -2,13 +2,13 @@
   "name": "unsweetener",
   "version": "0.0.0",
   "scripts": {
-    "init:all": "npm install && cd client && npm install && cd ../server && npm install && cd ../",
+    "init:all": "yarn && cd client && yarn && cd ../server && yarn && cd ../",
     "start": "run-p start:**",
     "start:lambda": "netlify-lambda serve server",
     "start:app": "cd client && npm start",
     "build": "run-p build:**",
     "build:lambda": "netlify-lambda build server",
-    "build:app": "cd client && npm run build",
+    "build:app": "cd client && yarn build",
     "deploy:draft": "netlify deploy --dir=client/build --functions=functions",
     "deploy:prod": "netlify deploy --dir=client/build --functions=functions --prod"
   },
