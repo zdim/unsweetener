@@ -2,6 +2,11 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 const { db, netlify_db_key, mongodb_uri } = process.env;
 
+if (!db || !netlify_db_key || !mongodb_uri) {
+	console.error('env variable missing!');
+	return;
+}
+
 const uri = mongodb_uri.replace('$pass$', netlify_db_key).replace('$db$', db);
 
 let client = null;
@@ -18,7 +23,6 @@ const init = async () => {
 const get = async (id) => {
 	let result;
 	try {
-		console.log('getting ' + id);
 		const db = await init();
 		result = await db.findOne({ _id: ObjectId(id) });
 		console.log(result);
@@ -26,9 +30,7 @@ const get = async (id) => {
 	} catch (e) {
 		console.error('GET ERROR: ' + e);
 	} finally {
-		console.log('closing client');
 		client.close();
-		console.log('passed close');
 		return result;
 	}
 };
