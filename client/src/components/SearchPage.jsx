@@ -44,7 +44,7 @@ export const SearchPage = (props) => {
 					<SearchResultsTitle>
 						results for{' '}
 						<span
-							style={{ fontWeight: 'lighter', color: '#84c3d6' }}
+							style={{ fontWeight: 'lighter', color: 'rgb(142 193 160)' }}
 						>
 							{query}
 						</span>

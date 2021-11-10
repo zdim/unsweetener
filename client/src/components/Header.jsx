@@ -8,7 +8,7 @@ export const Header = (props) => {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background-color: #111111;
+		background-color: #000;
 		color: #fff;
 	`;
 

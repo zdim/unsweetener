@@ -13,7 +13,6 @@ const List = styled.ul`
 const ListItem = styled.li`
 	list-style-type: none;
 	text-align: left;
-	background: #151b20;
 	padding: 10px;
 	border-radius: 4px;
 	&:nth-child(odd) {
@@ -25,10 +24,10 @@ const ListItem = styled.li`
 const ListLink = styled(Link)`
 	text-decoration: none;
 	text-transform: lowercase;
-	color: lightblue;
+	color: rgb(142, 193, 160);
 	line-height: 133%;
 	&:visited {
-		color: lightblue;
+		color: rgb(142, 193, 160);
 	}
 	&:hover {
 		color: #fff;
@@ -38,7 +37,8 @@ const ListLink = styled(Link)`
 const Brand = styled.p`
 	text-transform: uppercase;
 	font-size: 0.6rem;
-	margin: 0.1rem 0 0 0;
+	margin: 0.3rem 0 0 0;
+	color: gainsboro;
 `;
 
 const LoaderContainer = styled.div`

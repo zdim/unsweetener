@@ -11,9 +11,17 @@ import { HeaderSearch } from './HeaderSearch';
 import { EditFoodModal } from './EditFoodModal';
 
 const FoodName = styled.h1`
-	margin-bottom: 10%;
+	margin-top: 0;
+	margin-bottom: 4rem;
 	font-size: 1.8em;
+	opacity: .9;
 `;
+
+const BrandName = styled.p`
+	opacity: .65;
+	font-weight: bold;
+	font-size: .9rem;
+`
 
 const Ingredients = styled.h2`
 	font-size: 1.4em;
@@ -119,8 +127,8 @@ export const FoodPage = (props) => {
 					) : (
 						<>
 							<BackToSearch history={props.history} />
-							<div style={{ margin: '10%' }}>
-								<p>{brand}</p>
+							<div style={{ margin: '3rem 0 0 0' }}>
+								<BrandName>{brand}</BrandName>
 								<FoodName>{name}</FoodName>
 								<Ingredients>{getDescription()}</Ingredients>
 							</div>
