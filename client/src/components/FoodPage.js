@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import '../styles/App.css';
 import styled from 'styled-components';
+import { UserContext } from '../context/user';
 import { LogoLink } from './LogoLink';
 import { Loader } from './Loader';
 import { Header } from './Header';
 import { BackToSearch } from './BackToSearch';
 import { HeaderSearch } from './HeaderSearch';
+import { EditFoodModal } from './EditFoodModal';
 
 const FoodName = styled.h1`
 	margin-bottom: 10%;
@@ -25,12 +27,14 @@ const LoaderContainer = styled.div`
 `;
 
 export const FoodPage = (props) => {
+	const { user } = React.useContext(UserContext);
 	const [isLoading, setIsLoading] = useState(true);
 	const [ingredients, setIngredients] = useState('');
 	const [name, setName] = useState('');
 	const [brand, setBrand] = useState(null);
 	const [items, setItems] = useState(null);
 	const [query, setQuery] = useState('');
+	const [isEditing, setIsEditing] = useState(false);
 
 	const checkIngredients = (ing) => {
 		if (ing) {
@@ -120,7 +124,20 @@ export const FoodPage = (props) => {
 								<FoodName>{name}</FoodName>
 								<Ingredients>{getDescription()}</Ingredients>
 							</div>
+							{!!user && (
+								<button onClick={() => setIsEditing(true)}>
+									REQUEST AN EDIT
+								</button>
+							)}
 						</>
+					)}
+					{isEditing && (
+						<EditFoodModal
+							onRequestClose={() => setIsEditing(false)}
+							id={props.match.params.id}
+							foodName={name}
+							foodBrand={brand}
+						/>
 					)}
 				</div>
 			</div>

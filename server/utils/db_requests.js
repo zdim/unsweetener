@@ -1,10 +1,11 @@
+const { result } = require('lodash');
 const { MongoClient, ObjectId } = require('mongodb');
 
 const { db, netlify_db_key, mongodb_uri } = process.env;
 
 if (!db || !netlify_db_key || !mongodb_uri) {
 	console.error('env variable missing!');
-	return;
+	throw new Error('env variable missing');
 }
 
 const uri = mongodb_uri.replace('$pass$', netlify_db_key).replace('$db$', db);
@@ -25,7 +26,6 @@ const get = async (id) => {
 	try {
 		const db = await init();
 		result = await db.findOne({ _id: ObjectId(id) });
-		console.log(result);
 		return result;
 	} catch (e) {
 		console.error('GET ERROR: ' + e);
@@ -51,5 +51,23 @@ const search = async (searchTerm) => {
 	}
 };
 
+const edit = async (id, edit) => {
+	let result;
+	try {
+		const db = await init();
+		result = await db.updateOne(
+			{ _id: ObjectId(id) },
+			{ $set: { requested_edit: edit } }
+		);
+		console.log(`result count: ${result.matchedCount}`);
+	} catch (e) {
+		console.error('EDIT ERROR: ' + e);
+	} finally {
+		client.close();
+		return result;
+	}
+};
+
 exports.get = get;
 exports.search = search;
+exports.edit = edit;

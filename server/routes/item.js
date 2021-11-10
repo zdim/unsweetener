@@ -11,7 +11,20 @@ router.route('/:id').get(async (req, res) => {
 			res.send(controller.handleItemData(result));
 		}
 	} catch (e) {
-		(e) => console.error(e);
+		console.error(e);
+	}
+});
+
+router.route('/:id').patch(async (req, res) => {
+	try {
+		const { id } = req.params;
+		const edit = req.body;
+		if (id) {
+			const result = await db.edit(id, edit);
+			res.send(result);
+		}
+	} catch (e) {
+		console.error(e);
 	}
 });
 
