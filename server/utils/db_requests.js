@@ -1,4 +1,3 @@
-const { result } = require('lodash');
 const { MongoClient, ObjectId } = require('mongodb');
 
 const { db, netlify_db_key, mongodb_uri } = process.env;
@@ -28,7 +27,7 @@ const get = async (id) => {
 		result = await db.findOne({ _id: ObjectId(id) });
 		return result;
 	} catch (e) {
-		console.error('GET ERROR: ' + e);
+		console.error('Error retrieving food item: ' + e);
 	} finally {
 		client.close();
 		return result;
@@ -44,7 +43,7 @@ const search = async (searchTerm) => {
 			.limit(25);
 		results = await result.toArray();
 	} catch (e) {
-		console.error('SEARCH ERROR: ' + e);
+		console.error('Error searching: ' + e);
 	} finally {
 		client.close();
 		return results;
@@ -59,9 +58,8 @@ const edit = async (id, edit) => {
 			{ _id: ObjectId(id) },
 			{ $set: { requested_edit: edit } }
 		);
-		console.log(`result count: ${result.matchedCount}`);
 	} catch (e) {
-		console.error('EDIT ERROR: ' + e);
+		console.error('Error requesting an edit: ' + e);
 	} finally {
 		client.close();
 		return result;
