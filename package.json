@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/zdim/unsweetener#readme",
   "dependencies": {
-    "elliptic": "^6.5.3",
+    "elliptic": "^6.6.1",
     "encoding": "^0.1.13",
     "lodash": "^4.17.21",
     "netlify-lambda": "^1.6.3"
